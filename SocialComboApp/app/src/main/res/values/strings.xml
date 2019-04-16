@@ -1,3 +1,7 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">SocialCombo</string>
+    <string android:name="com.twitter.sdk.android.CONSUMER_KEY" name="TWITTER_CONSUMER_KEY">RPgVPavinZj7D9h6UMa8Dlrcw</string>
+    <string android:name="com.twitter.sdk.android.CONSUMER_SECRET" name="TWITTER_CONSUMER_SECRET">8bwpZDWdCuHz2mlX6S3Y5wg2pvTHmZvgRl68NsgHmhiLZpnmPd</string>
+    <string name="facebook_app_id">282408182653112</string>
+    <string name="fb_login_protocol_scheme">fb282408182653112</string>
 </resources>
