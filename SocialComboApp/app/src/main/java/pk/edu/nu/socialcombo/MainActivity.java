@@ -1,23 +1,7 @@
 package pk.edu.nu.socialcombo;
 
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
-
-import com.facebook.CallbackManager;
-import com.twitter.sdk.android.core.DefaultLogger;
-import com.twitter.sdk.android.core.Twitter;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterConfig;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,39 +9,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // hiding actionbar
+        try
+        {
+            this.getSupportActionBar().hide();
+        }
+        catch (NullPointerException e){}
+
+
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.parent_holder, new SocialLoginFragment(), "SocialLoginFragment")
+                .add(R.id.main_parent_layout, new FeedFragment(), "FeedFragment")
                 .commit();
 
-        TwitterConfig config = new TwitterConfig.Builder(this)
-                .logger(new DefaultLogger(Log.DEBUG))
-                .twitterAuthConfig(new TwitterAuthConfig(getResources().getString(R.string.TWITTER_CONSUMER_KEY), getResources().getString(R.string.TWITTER_CONSUMER_SECRET)))
-                .debug(true)
-                .build();
-
-        Twitter.initialize(config);
-
-
-
         setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        Log.d("TEST", "ONACTIVITYRESULT");
-
-        // Pass the activity result to the fragment, which will then pass the result to the login
-        // button.
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.parent_holder);
-        if(fragment == null){
-            Log.d("TEST", "FRAGMENT IS NULL");
-        }
-        if (fragment != null) {
-            fragment.onActivityResult(requestCode, resultCode, data);
-            Log.d("TEST", "FRAGMENT IS NOT NULL");
-        }
     }
 }

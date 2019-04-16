@@ -4,4 +4,6 @@
     <string android:name="com.twitter.sdk.android.CONSUMER_SECRET" name="TWITTER_CONSUMER_SECRET">8bwpZDWdCuHz2mlX6S3Y5wg2pvTHmZvgRl68NsgHmhiLZpnmPd</string>
     <string name="facebook_app_id">282408182653112</string>
     <string name="fb_login_protocol_scheme">fb282408182653112</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

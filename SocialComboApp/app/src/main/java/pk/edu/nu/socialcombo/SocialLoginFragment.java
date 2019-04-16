@@ -48,6 +48,8 @@ public class SocialLoginFragment extends Fragment {
     Button twLogoutBtn;
     Button logoutAllBtn;
 
+    Button continueBtn;
+
     TextView fbStatusTv;
     TextView twStatusTv;
 
@@ -73,6 +75,8 @@ public class SocialLoginFragment extends Fragment {
 
         loginButton = view.findViewById(R.id.loginButtonTwitter);
 
+        continueBtn = view.findViewById(R.id.continueBtn);
+
         fbStatusTv = view.findViewById(R.id.facebook_status_tv);
         twStatusTv = view.findViewById(R.id.twitter_status_tv);
 
@@ -89,8 +93,8 @@ public class SocialLoginFragment extends Fragment {
 
         TwitterSession twitterSession = TwitterCore.getInstance().getSessionManager().getActiveSession();
 
-
-        Toast.makeText(getActivity(), "Twitter Sesssion Secret:\n"+ twitterSession.getAuthToken().secret+
+        if(twitterSession != null)
+            Toast.makeText(getActivity(), "Twitter Sesssion Secret:\n"+ twitterSession.getAuthToken().secret+
                 "\nTwitter Session Token: "+twitterSession.getAuthToken().token,
                 Toast.LENGTH_LONG).show();
 
@@ -108,6 +112,13 @@ public class SocialLoginFragment extends Fragment {
 
         updateButtons();
 
+        continueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         fbLogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
