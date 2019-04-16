@@ -6,4 +6,12 @@
     <string name="fb_login_protocol_scheme">fb282408182653112</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="social_login_test">Social Login Test</string>
+    <string name="no">No</string>
+    <string name="logged_into_twitter_api">Logged into Twitter API:</string>
+    <string name="logged_into_facebook_api">Logged into Facebook API:</string>
+    <string name="logout_twitter_api">Logout Twitter API</string>
+    <string name="logout_facebook_api">Logout Facebook API</string>
+    <string name="logout_all">Logout All</string>
+    <string name="continue_to_main_app">Continue to main app</string>
 </resources>
